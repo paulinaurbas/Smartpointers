@@ -3,10 +3,29 @@
 
 #include "pch.h"
 #include <iostream>
-
+#include "Account.h"
+#include "AccountsVector.h"
+#include "InvestmentSavingAccount.h"
+#include "SavingsAccont.h"
+#include "IPrint.h"
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	std::cout << "\n==========================================" << std::endl;
+	std::shared_ptr<Account> acc1 = std::make_shared<SavingsAccount>("Ted", 10000, 3.1);
+	std::shared_ptr<Account> acc2 = std::make_shared<InvestmentAccount>("Suse", 5000, 3.1, 2);
+	std::shared_ptr<Account> acc3 = std::make_shared<Account>("Curly", 6000);
+
+	std::vector<std::shared_ptr<Account>> accounts;
+	accounts.push_back(acc1);
+	accounts.push_back(acc2);
+	accounts.push_back(acc3);
+
+	for (const auto &acc : accounts) {
+		std::cout << *acc << std::endl;
+		std::cout << "Use count: " << acc.use_count() << std::endl;
+	}
+
+	std::cout << "==========================================" << std::endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
