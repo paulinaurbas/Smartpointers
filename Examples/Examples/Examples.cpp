@@ -5,6 +5,28 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+
+int counter = 0;
+
+struct Obiekt
+{
+	
+	int ID;
+	Obiekt() : ID(counter++)
+	{
+		std::cout << "Obiekt "<< ID <<" stworzony" << std::endl;
+	}
+	~Obiekt()
+	{
+		std::cout << "Obiekt " << ID <<" zostal usuniety" << std::endl;
+	}
+	
+	void DoSome()
+	{
+		std::cout << "Funkcja dziala" << std::endl;
+	}
+};
+
 void Example1 ()
 {
 	std::cout << "Example 1" << std::endl;
@@ -42,12 +64,54 @@ void Example3()
 	std::cout << p1.use_count() << std::endl;
 	std::cout << std::endl;
 }//automatically deleted 
+
+void Example4()
+{
+	std::cout << "Example 4" << std::endl;
+	std::unique_ptr<int> up1(new int);
+	*up1 = 732;
+	std::cout << up1 << std::endl; //adres
+	std::cout << up1.get() << std::endl;
+	std::cout <<"wartosc : " << *up1 << std::endl; //wartosc
+	up1.release();
+	std::cout <<"adres po release : " << up1.get() << std::endl;
+
+	std::unique_ptr<Obiekt> uP2(new Obiekt);
+	if (1)
+	{
+		std::cout << "TUTAJ KLAMRA OTWIERAJACA" << std::endl;
+		std::unique_ptr<Obiekt> uP2(new Obiekt);
+	}
+	std::cout << "wyjscie z if ale nadal jestesmy w Example 4" << std::endl;
+}
+
+void Example5()
+{
+	std::cout << "Example 5" << std::endl;
+	auto obiekt = std::make_unique<Obiekt>(); //mozna tez tak tworzyc unique pointer 
+	obiekt->DoSome(); //funkcje wywolujemy normalnie
+	//std::unique_ptr<Obiekt> obiekt2 = obiekt; //tak NIE ROBIMY
+}
+void Example6()
+{
+	std::cout << "Example 6" << std::endl;
+	auto pointerA = std::make_unique<Obiekt>(); 
+	std::cout << "Adres wsakznika A : " << pointerA.get() << std::endl;
+	auto pointerB = std::move(pointerA); 
+	std::cout << "Adres wsakznika A po std::move : " << pointerA.get() << std::endl;
+	std::cout << "Adres wsakznika B po std::move : " << pointerB.get() << std::endl;
+}
+
+
 int main()
 {
 	Example1();
 	Example2(); 
 	Example3();
+	Example4();
+	Example6();
 	_CrtDumpMemoryLeaks();
+	
 	return 0;
 }  
 
