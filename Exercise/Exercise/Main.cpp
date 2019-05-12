@@ -25,7 +25,7 @@ int main()
 		std::cout << "Use count: " << acc.use_count() << std::endl;
 	}
 
-	std::cout << "==========================================" << std::endl;
+	std::cout << std::endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
