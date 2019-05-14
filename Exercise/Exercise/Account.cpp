@@ -7,7 +7,7 @@ Account::Account(std::string name, double balance) :name{ name }, balance{balanc
 }
 Account::~Account()
 {
-
+	std::cout << "Account destructor" << std::endl;
 }
 bool Account::Deposit(double amount)
 {

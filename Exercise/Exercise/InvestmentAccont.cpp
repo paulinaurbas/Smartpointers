@@ -5,6 +5,10 @@ InvestmentAccount::InvestmentAccount(std::string name, double balanace, double I
 {
 
 }
+InvestmentAccount::~InvestmentAccount()
+{
+	std::cout << "Investment account destructor" << std::endl;
+}
 //Jesli wartosc na koncie oszczednosciowym jest wieksza od 2000 wtedy dodajemy bonus 200 zl 
 bool InvestmentAccount::Deposit(double amount)
 {

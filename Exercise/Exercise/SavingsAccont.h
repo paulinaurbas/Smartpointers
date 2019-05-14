@@ -8,7 +8,7 @@ protected:
 	double IntRate;
 public:
 	SavingsAccount(std::string name, double balanace, double IntRate);
-	~SavingsAccount() = default;
+	~SavingsAccount();
 	bool Deposit(double amount);
 	bool Withdraw(double amount);
 	virtual void Print(std::ostream &os) const override;

@@ -4,7 +4,10 @@ SavingsAccount::SavingsAccount(std::string name, double balance, double IntRate)
 {
 
 }
-
+SavingsAccount::~SavingsAccount()
+{
+	std::cout << "Savings Account destructor" << std::endl;
+}
 bool SavingsAccount::Deposit(double amount)
 {
 	amount += amount * (IntRate / 100);
