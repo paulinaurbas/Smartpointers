@@ -1,7 +1,4 @@
-﻿// Exercise3.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
-//
-
-#include "pch.h"
+﻿#include "pch.h"
 #include <memory>
 #include <iostream>
 
@@ -15,20 +12,19 @@ void zadanie1()
 	std::cout << "nowa wartosc : " <<  *wsk << std::endl;
 	delete wsk;
 }
+//ZADANIE PIERWSZE 
+// napisz funkcje smartZadanie1() 
+//funkcja ta ma być lustrzanym odbiciem funckji zadanie1 ale proszę wykorzystać unique_pointer'a zamiast zwykłego wskaźnika 
 
 void smartZadanie1()
 {
-	auto ptr = std::make_unique<int>(3);
-	std::cout << "adres " << ptr.get() << std::endl;
-	std::cout << "wartosc " << *ptr << std::endl;
-	std::cout << " ZMIANA WARTOSCI " << std::endl;
-	*ptr = 47;
-	std::cout << "nowa wartosc : " << *ptr << std::endl;
+	//tutaj rozwiązanie 
 }
 
 	
 int main()
 {
+	zadanie1();
 	smartZadanie1();
 }
 
