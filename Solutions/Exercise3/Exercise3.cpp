@@ -10,7 +10,6 @@
 
 int main()
 {
-     //test test test
-	std::cout << "czy todziala ? ";
+     
 }
 
