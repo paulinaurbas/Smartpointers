@@ -33,24 +33,9 @@ public:
 	}
 
 };
-auto make() {
-	return std::make_unique<std::vector<std::shared_ptr<Point>>>();
-}
+//4.1. Stworzyc funkcje make, ktora zwraci unique_ptr wektora shared_ptr obiektu Point
 
-void fill(std::vector<std::shared_ptr<Point>> &vec, int num) {
-	int temp;
-	int temp2;
-	for (int i = 1; i <= num; ++i) {
-		std::cout << "Enter data point x [" << i << "] : ";
-		std::cin >> temp;
-		std::cout << "Enter data point y [" << i << "] : ";
-		std::cin >> temp2;
-		//        std::shared_ptr<Test> ptr = std::make_shared<Test>(temp);
-		//        vec.push_back(ptr);
-		vec.push_back(std::make_shared<Point>(temp, temp2));
-
-	}
-}
+//4.2 Stworzyc funkcje fill, ktora przyjmuje jako argumenty: vector shared pointerow obiektu Point i wartosc int, ktora reprezentuje ile zostanie wprowadzonych wartosci 
 
 void display(const std::vector<std::shared_ptr<Point>>&vec) {
 	std::cout << "\nDisplaying vector data" << std::endl;
@@ -63,14 +48,15 @@ void display(const std::vector<std::shared_ptr<Point>>&vec) {
 
 int main()
 {
- std::unique_ptr<std::vector<std::shared_ptr<Point>>> vec_ptr;
+	/*
+    std::unique_ptr<std::vector<std::shared_ptr<Point>>> vec_ptr;
 	vec_ptr = make();
 	std::cout << "How many data points do you want to enter: ";
 	int num;
 	std::cin >> num;
 	fill(*vec_ptr, num);
 	display(*vec_ptr);
-	
+	*/
 	return 0;
 }
 

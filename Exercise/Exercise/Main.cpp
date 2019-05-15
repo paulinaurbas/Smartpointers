@@ -11,20 +11,15 @@
 int main()
 {
 	std::cout << "\n Accounts" << std::endl;
-	std::shared_ptr<Account> acc1 = std::make_shared<SavingsAccount>("Ted", 10000, 3.1);
-	std::shared_ptr<Account> acc2 = std::make_shared<InvestmentAccount>("Suse", 5000, 3.1, 2);
-	std::shared_ptr<Account> acc3 = std::make_shared<Account>("Curly", 6000);
-	(*acc1).Deposit(20);
-	std::vector<std::shared_ptr<Account>> accounts;
-	accounts.push_back(acc1);
-	accounts.push_back(acc2);
-	accounts.push_back(acc3);
-
+	//2.1 stworz sharepointery dla 3 rodzajow kont 
+	//2.2 stworz vector sharedpointerow 
+	//2.3 dodaj kazdy z sharedpoinerow do tego vectora
+	/*
 	for (const auto &acc : accounts) {
 		std::cout << *acc << std::endl;
 		std::cout << "Use count: " << acc.use_count() << std::endl;
 	}
-
+	*/
 	std::cout << std::endl;
 
 	return 0;
